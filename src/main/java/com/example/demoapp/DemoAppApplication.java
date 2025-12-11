@@ -17,7 +17,8 @@ public class DemoAppApplication {
 class ProfileController {
     @GetMapping("/profile")
     public String profile() {
-        return "Welcome to the Demo App! Devop-Capstone-Project";
+        return "Welcome to the Demo App! DevOps-Capstone-Project";
     }
 }
+
 
