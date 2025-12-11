@@ -8,7 +8,7 @@ pipeline {
     
     environment {
         DOCKER_IMAGE = "nishasubramaniyan/capstone_project"
-        CONTAINER_NAME = "capstone_project"
+        CONTAINER_NAME = "capstone"
         CONTAINER_PORT = "8081:8080"
         DOCKER_CREDENTIALS = 'docker'
     }
@@ -70,7 +70,7 @@ pipeline {
             steps {
         sh """
             sleep 40
-            docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}' | grep capstone_project || echo "Container running"
+            docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}' | grep capstone || echo "Container running"
             curl --max-time 10 http://localhost:8081/profile || echo "🌐 LIVE: http://52.66.227.103:8081/profile"
         """
             }
