@@ -1,12 +1,4 @@
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-
-FROM node:18-alpine
-WORKDIR /app
-COPY --from=builder /app/node_modules ./node_modules
-COPY . .
-USER node
-EXPOSE 3000
-CMD ["npm", "start"]
+FROM openjdk:11-jdk-slim
+EXPOSE 8080
+COPY target/demo-app-1.0-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
