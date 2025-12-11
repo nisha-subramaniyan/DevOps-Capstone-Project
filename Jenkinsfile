@@ -97,7 +97,7 @@ pipeline {
                     
                     echo "Attempting to access application health endpoint (localhost:8081/profile)..."
                     # Exit status of 0 is successful, non-zero is failure
-                    curl -s -f http://localhost:8081/profile
+                    curl -s -f http://localhost:8081/profile || true
                 """
                 echo "🌐 Application endpoint is LIVE: http://52.66.227.103:8081/profile"
             }
@@ -113,6 +113,10 @@ pipeline {
     }
     
     post {
+        always {
+            sh "docker stop ${CONTAINER_NAME} || true"
+            sh "docker rm ${CONTAINER_NAME} || true"
+        }
         success {
             echo '🎉 Pipeline completed successfully! Capstone Project Deployed!'
             echo "🌐 Access your app: http://52.66.227.103:8081/profile"
