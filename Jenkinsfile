@@ -65,23 +65,6 @@ pipeline {
                 echo "🚀 Container ${CONTAINER_NAME} started!"
             }
         }
-        
-        stage('Verify Deployment') {
-            steps {
-            sh """
-            sleep 40
-            docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}' | grep capstone_project || echo "Container running"
-            curl --max-time 10 http://localhost:8081/profile || echo "🌐 LIVE: http://52.66.227.103:8081/profile"
-        """
-            }
-        }
-
-        stage('Cleanup') {
-            steps {
-                sh "docker rmi ${DOCKER_IMAGE}:${env.BUILD_ID} || true"
-                echo "🧹 Cleanup completed!"
-            }
-        }
     }
     
     post {
