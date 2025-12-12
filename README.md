@@ -7,10 +7,9 @@ This repository demonstrates a complete **Continuous Integration and Continuous 
 This project shows how DevOps tools integrate together to automate a typical development workflow.
 
 - **Source Code Management**: GitHub
+   ```
 	🧩 Git_Code Structure
-
-		```
-		java-jenkins-demo/
+		DevOps-Capstone-Project/
 		├── src/
 		│   └── main/
 		│       └── java/
@@ -20,15 +19,17 @@ This project shows how DevOps tools integrate together to automate a typical dev
 		|                        └── DemoaAppApplication,java/
 		├── pom.xml
 		├── Dockerfile
-                └── Jenkinsfile
-                ```
+		└── Jenkinsfile
+   ```
 
-- **Continuous Integration**: Jenkins 
+- **Continuous Integration**: Jenkins
+```
 	🏗️ The pipeline automates:
 		🧩 **Code Checkout** from GitHub  
 		🔧 **Build** with Maven   
 		🐳 **Docker Image Build & Push** to DockerHub  
-		🚀 **Local Deployment** of the containerized application 
+		🚀 **Local Deployment** of the containerized application
+```
   
 - **Containerization**: Docker  
 - **Registry**: DockerHub  
