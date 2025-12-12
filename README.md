@@ -83,7 +83,7 @@ This project shows how DevOps tools integrate together to automate a typical dev
 	Step 3: Verify the Maven installation
 	Execute mvn -version command and it should produce the following output.
 ```
-| **Docker** | Containerize and deploy the app |
+| **Docker** | Containerize and deploy the app | | **DockerHub** | Host Docker images |
 ```
 	Installation of Docker in Ubuntu:
 	# Add Docker's official GPG key:
@@ -113,8 +113,6 @@ This project shows how DevOps tools integrate together to automate a typical dev
 
 	sudo usermod -aG docker $USER newgrp docker
 ```
-| **DockerHub** | Host Docker images |
-
 | **Prometheus & Grafana** | Monitoring |
 
 YouTube: (https://www.youtube.com/watch?v=Q_tmu5Wte9E)
