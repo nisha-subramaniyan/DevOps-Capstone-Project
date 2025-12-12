@@ -52,7 +52,7 @@ This project shows how DevOps tools integrate together to automate a typical dev
 	java -version
 	```
 | **Jenkins** | Automate CI/CD pipeline |
-	```
+```
 	Now, you can proceed with installing Jenkins
 	curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
  	 /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -65,9 +65,9 @@ This project shows how DevOps tools integrate together to automate a typical dev
 	to check Jenkins is installed or not - systemctl status Jenkins
 
 	After you login to Jenkins, - Run the command to copy the Jenkins Admin Password - sudo cat /var/lib/jenkins/secrets/initialAdminPassword - 	Enter the Administrator password
-	```
+```
 | **Maven** | Build and package Java application |
-	```
+```
 	Step 1: Download the Maven Binaries
 	wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
 	tar -xvf apache-maven-3.9.11-bin.tar.gz
@@ -82,9 +82,9 @@ This project shows how DevOps tools integrate together to automate a typical dev
 
 	Step 3: Verify the Maven installation
 	Execute mvn -version command and it should produce the following output.
-	```
+```
 | **Docker** | Containerize and deploy the app |
-	```
+```
 	Installation of Docker in Ubuntu:
 	# Add Docker's official GPG key:
 	sudo apt-get update
@@ -112,13 +112,13 @@ This project shows how DevOps tools integrate together to automate a typical dev
 	sudo chmod 666 /var/run/docker.sock
 
 	sudo usermod -aG docker $USER newgrp docker
-	```
+```
 | **DockerHub** | Host Docker images |
 | **Prometheus & Grafana** | Monitoring |
-	```
+```
 	YouTube: https://www.youtube.com/watch?v=Q_tmu5Wte9E
 	Git Repo: https://github.com/networknuts/docker-monitoring
-	```
+```
 
 ## 🏁 Conclusion
 
