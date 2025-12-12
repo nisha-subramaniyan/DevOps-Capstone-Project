@@ -37,12 +37,12 @@ This project shows how DevOps tools integrate together to automate a typical dev
 
 
 
-## ⚙️ Tools & Technologies Used
+## ⚙️ Tech Stack
 
-| Tool | Purpose |
-|------|----------|
 | **GitHub** | Source code repository |
+
 | **AWS EC2** | Hosting app |
+
 | **JDK 17** | Java runtime and compiler |
 	```
 	Install Java
