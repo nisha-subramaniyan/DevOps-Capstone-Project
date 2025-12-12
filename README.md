@@ -30,7 +30,7 @@ This project shows how DevOps tools integrate together to automate a typical dev
 		🔧 **Build** with Maven   
 		🐳 **Docker Image Build & Push** to DockerHub  
 		🚀 **Local Deployment** of the containerized application 
-  ...
+  ```
 - **Containerization**: Docker  
 - **Registry**: DockerHub  
 - **Deployment**: Local Docker environment  
@@ -45,13 +45,13 @@ This project shows how DevOps tools integrate together to automate a typical dev
 | **AWS EC2** | Hosting app |
 
 | **JDK 17** | Java runtime and compiler |
-	```
+```
 	Install Java
 	sudo apt update
 	sudo apt install openjdk-17-jre
 	Verify Java is Installed
 	java -version
-	```
+```
 | **Jenkins** | Automate CI/CD pipeline |
 ```
 	Now, you can proceed with installing Jenkins
