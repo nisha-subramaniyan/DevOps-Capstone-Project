@@ -24,12 +24,13 @@ This project shows how DevOps tools integrate together to automate a typical dev
                 ```
 
 - **Continuous Integration**: Jenkins 
+  ```
 	🏗️ The pipeline automates:
 		🧩 **Code Checkout** from GitHub  
 		🔧 **Build** with Maven   
 		🐳 **Docker Image Build & Push** to DockerHub  
 		🚀 **Local Deployment** of the containerized application 
-  
+  ...
 - **Containerization**: Docker  
 - **Registry**: DockerHub  
 - **Deployment**: Local Docker environment  
