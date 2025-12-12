@@ -7,9 +7,10 @@ This repository demonstrates a complete **Continuous Integration and Continuous 
 This project shows how DevOps tools integrate together to automate a typical development workflow.
 
 - **Source Code Management**: GitHub
-   ```
 	🧩 Git_Code Structure
-		DevOps-Capstone-Project/
+
+		```
+		java-jenkins-demo/
 		├── src/
 		│   └── main/
 		│       └── java/
@@ -19,19 +20,108 @@ This project shows how DevOps tools integrate together to automate a typical dev
 		|                        └── DemoaAppApplication,java/
 		├── pom.xml
 		├── Dockerfile
-		└── Jenkinsfile
-   ```
+                └── Jenkinsfile
+                ```
 
-- **Continuous Integration**: Jenkins
-```
+- **Continuous Integration**: Jenkins 
 	🏗️ The pipeline automates:
 		🧩 **Code Checkout** from GitHub  
 		🔧 **Build** with Maven   
 		🐳 **Docker Image Build & Push** to DockerHub  
-		🚀 **Local Deployment** of the containerized application
-```
+		🚀 **Local Deployment** of the containerized application 
   
 - **Containerization**: Docker  
 - **Registry**: DockerHub  
 - **Deployment**: Local Docker environment  
 - **Monitoring**: Prometheus & Grafana
+
+
+
+## ⚙️ Tools & Technologies Used
+
+| Tool | Purpose |
+|------|----------|
+| **GitHub** | Source code repository |
+| **AWS EC2** | Hosting app |
+| **JDK 17** | Java runtime and compiler |
+	```
+	Install Java
+	sudo apt update
+	sudo apt install openjdk-17-jre
+	Verify Java is Installed
+	java -version
+	```
+| **Jenkins** | Automate CI/CD pipeline |
+	```
+	Now, you can proceed with installing Jenkins
+	curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+ 	 /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+	echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+ 	https://pkg.jenkins.io/debian binary/ | sudo tee \
+	  /etc/apt/sources.list.d/jenkins.list > /dev/null
+	sudo apt-get update
+	sudo apt-get install jenkins
+
+	to check Jenkins is installed or not - systemctl status Jenkins
+
+	After you login to Jenkins, - Run the command to copy the Jenkins Admin Password - sudo cat /var/lib/jenkins/secrets/initialAdminPassword - 	Enter the Administrator password
+	```
+| **Maven** | Build and package Java application |
+	```
+	Step 1: Download the Maven Binaries
+	wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+	tar -xvf apache-maven-3.9.11-bin.tar.gz
+	sudo mv apache-maven-3.9.11 /opt/
+
+	Step 2: Setting M2_HOME and Path Variables
+	Add the following lines to the user profile file (.profile).
+	M2_HOME='/opt/apache-maven-3.9.11'
+	PATH="$M2_HOME/bin:$PATH"
+	export PATH
+	Relaunch the terminal or execute source .profile to apply the changes.
+
+	Step 3: Verify the Maven installation
+	Execute mvn -version command and it should produce the following output.
+	```
+| **Docker** | Containerize and deploy the app |
+	```
+	Installation of Docker in Ubuntu:
+	# Add Docker's official GPG key:
+	sudo apt-get update
+	sudo apt-get install ca-certificates curl
+	sudo install -m 0755 -d /etc/apt/keyrings
+	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+	sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+	# Add the repository to Apt sources:
+	echo \
+	  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+	  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+	  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	sudo apt-get update
+
+	To Install the latest Version:
+	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	sudo usermod -aG docker jenkins
+
+	sudo systemctl restart docker
+	sudo systemctl restart jenkins
+
+	to check images – sudo docker images
+
+	sudo chmod 666 /var/run/docker.sock
+
+	sudo usermod -aG docker $USER newgrp docker
+	```
+| **DockerHub** | Host Docker images |
+| **Prometheus & Grafana** | Monitoring |
+	```
+	YouTube: https://www.youtube.com/watch?v=Q_tmu5Wte9E
+	Git Repo: https://github.com/networknuts/docker-monitoring
+	```
+
+## 🏁 Conclusion
+
+End-to-End DevOps Pipeline: Project Summary
+
+This capstone project established a fully automated Continuous Delivery (CD) Pipeline for a containerized Node.js application. The workflow begins with a Git push to GitHub, which triggers Jenkins (via a Jenkinsfile). Jenkins uses Maven to build and package the code, then creates and pushes the Docker image to Docker Hub. The pipeline subsequently deploys the application to an AWS EC2 host. Finally, the infrastructure is monitored using Prometheus and Grafana, while CloudWatch provides centralized logging, ensuring a robust, maintainable, and observable production-grade stack. Cron and Bash scripts handle automated system maintenance.
