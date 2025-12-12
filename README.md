@@ -38,7 +38,7 @@ This project shows how DevOps tools integrate together to automate a typical dev
 
 
 
-## ⚙️ Tech Stack
+## 🛠️ Tech Stack
 
 | **GitHub** | Source code repository |
 
