@@ -116,10 +116,8 @@ This project shows how DevOps tools integrate together to automate a typical dev
 | **DockerHub** | Host Docker images |
 
 | **Prometheus & Grafana** | Monitoring |
-```
 	YouTube: (https://www.youtube.com/watch?v=Q_tmu5Wte9E)
 	Git Repo: (https://github.com/networknuts/docker-monitoring)
-```
 
 ## 🏁 Conclusion
 
