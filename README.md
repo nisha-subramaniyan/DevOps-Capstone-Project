@@ -113,9 +113,9 @@ to check images – sudo docker images
 ```
 | **Prometheus & Grafana** | Monitoring |
 
-YouTube: (https://www.youtube.com/watch?v=Q_tmu5Wte9E)
+YouTube: https://www.youtube.com/watch?v=Q_tmu5Wte9E
 
-Git Repo: (https://github.com/networknuts/docker-monitoring)
+Git Repo: https://github.com/networknuts/docker-monitoring
 
 | **Cronjob** | Log Backup |
 
