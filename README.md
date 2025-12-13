@@ -9,19 +9,19 @@ This project shows how DevOps tools integrate together to automate a typical dev
 - **Source Code Management**: GitHub
 	🧩 Git_Code Structure
 
-		```
-		java-jenkins-demo/
-		├── src/
-		│   └── main/
-		│       └── java/
-		│           └── com/
-		│               └── example/
-		|                    └── demoapp/
-		|                        └── DemoaAppApplication,java/
-		├── pom.xml
-		├── Dockerfile
-                └── Jenkinsfile
-                ```
+```
+java-jenkins-demo/
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── example/
+|                    └── demoapp/
+|                        └── DemoaAppApplication,java/
+├── pom.xml
+├── Dockerfile
+└── Jenkinsfile
+```
 
 - **Continuous Integration**: Jenkins 
   ```
@@ -46,73 +46,70 @@ This project shows how DevOps tools integrate together to automate a typical dev
 
 | **JDK 17** | Java runtime and compiler |
 ```
-	Install Java
-	sudo apt update
-	sudo apt install openjdk-17-jre
-	Verify Java is Installed
-	java -version
+Install Java
+sudo apt update
+sudo apt install openjdk-17-jre
+Verify Java is Installed
+java -version
 ```
 | **Jenkins** | Automate CI/CD pipeline |
 ```
-	Now, you can proceed with installing Jenkins
-	curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
- 	 /usr/share/keyrings/jenkins-keyring.asc > /dev/null
-	echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
- 	https://pkg.jenkins.io/debian binary/ | sudo tee \
-	  /etc/apt/sources.list.d/jenkins.list > /dev/null
-	sudo apt-get update
-	sudo apt-get install jenkins
+Now, you can proceed with installing Jenkins
 
-	to check Jenkins is installed or not - systemctl status Jenkins
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
 
-	After you login to Jenkins, - Run the command to copy the Jenkins Admin Password - sudo cat /var/lib/jenkins/secrets/initialAdminPassword - 	Enter the Administrator password
+to check Jenkins is installed or not - systemctl status Jenkins
+
+After you login to Jenkins, - Run the command to copy the Jenkins Admin Password - sudo cat /var/lib/jenkins/secrets/initialAdminPassword - 	Enter the Administrator password
 ```
 | **Maven** | Build and package Java application |
 ```
-	Step 1: Download the Maven Binaries
-	wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
-	tar -xvf apache-maven-3.9.11-bin.tar.gz
-	sudo mv apache-maven-3.9.11 /opt/
+# Step 1: Download the Maven Binaries
+wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+tar -xvf apache-maven-3.9.11-bin.tar.gz
+sudo mv apache-maven-3.9.11 /opt/
 
-	Step 2: Setting M2_HOME and Path Variables
-	Add the following lines to the user profile file (.profile).
-	M2_HOME='/opt/apache-maven-3.9.11'
-	PATH="$M2_HOME/bin:$PATH"
-	export PATH
-	Relaunch the terminal or execute source .profile to apply the changes.
+# Step 2: Setting M2_HOME and Path Variables
+Add the following lines to the user profile file (.profile).
+M2_HOME='/opt/apache-maven-3.9.11'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
+Relaunch the terminal or execute source .profile to apply the changes.
 
-	Step 3: Verify the Maven installation
-	Execute mvn -version command and it should produce the following output.
+# Step 3: Verify the Maven installation
+Execute mvn -version command and it should produce the following output.
 ```
 | **Docker** | Containerize and deploy the app | | **DockerHub** | Host Docker images |
 ```
-	Installation of Docker in Ubuntu:
-	# Add Docker's official GPG key:
-	sudo apt-get update
-	sudo apt-get install ca-certificates curl
-	sudo install -m 0755 -d /etc/apt/keyrings
-	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-	sudo chmod a+r /etc/apt/keyrings/docker.asc
+Installation of Docker in Ubuntu:
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-	# Add the repository to Apt sources:
-	echo \
-	  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-	  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-	  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-	sudo apt-get update
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
 
-	To Install the latest Version:
-	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-	sudo usermod -aG docker jenkins
+To Install the latest Version:
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo usermod -aG docker jenkins
 
-	sudo systemctl restart docker
-	sudo systemctl restart jenkins
+sudo systemctl restart docker
+sudo systemctl restart jenkins
 
-	to check images – sudo docker images
-
-	sudo chmod 666 /var/run/docker.sock
-
-	sudo usermod -aG docker $USER newgrp docker
+to check images – sudo docker images
 ```
 | **Prometheus & Grafana** | Monitoring |
 
