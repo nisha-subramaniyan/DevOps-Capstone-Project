@@ -117,6 +117,43 @@ YouTube: (https://www.youtube.com/watch?v=Q_tmu5Wte9E)
 
 Git Repo: (https://github.com/networknuts/docker-monitoring)
 
+| **Cronjob** | Log Backup |
+
+```
+created backup.sh
+
+#!/bin/bash
+BACKUP_DIR="/backups/logs"
+DATE=$(date +%Y-%m-%d_%H-%M)
+mkdir -p $BACKUP_DIR
+tar -czf "$BACKUP_DIR/logs_$DATE.tar.gz" /var/log/syslog /var/log/auth.log /your-app-logs/ 2>/dev/null || echo "Warning: Some files inaccessible"
+chown $USER:$USER "$BACKUP_DIR/logs_$DATE.tar.gz"
+echo "Backup completed: $BACKUP_DIR/logs_$DATE.tar.gz" | mail -s "Log Backup" your-email@example.com
+find $BACKUP_DIR -name "logs_*.tar.gz" -mtime +7 -delete
+
+cronjob
+* * * * * /home/uduntu/bachkup.sh
+
+	ubuntu@13.202.88.219:~$/home/ubuntu/cron.log
+	Backup created at Fri Dec 12 08.23.01 UTC 2025
+	Backup created at Fri Dec 12 08.23.02 UTC 2025
+	Backup created at Fri Dec 12 08.23.03 UTC 2025
+	Backup created at Fri Dec 12 08.23.04 UTC 2025
+	Backup created at Fri Dec 12 08.23.05 UTC 2025
+	Backup created at Fri Dec 12 08.23.06 UTC 2025
+	Backup created at Fri Dec 12 08.23.07 UTC 2025
+```
+
+# 📦 Setup to run locally
+```
+git clone https://github.com/nisha-subramaniyan/DevOps-Capstone-Project.git
+cd DevOps-Capstone-Project
+
+docker build -t capstone_project
+docker run -d -p 8081:8080 capstone_project
+Open: http://localhost:8081
+```
+
 ## 🏁 Conclusion
 
 End-to-End DevOps Pipeline: Project Summary
