@@ -24,5 +24,6 @@
                 <version>2.7.0</version> 
             </plugin>
         </plugins>
+        </finalname>app.jar</finalname>
     </build>
 </project>
